@@ -1,51 +1,137 @@
-* {
-	box-sizing: border-box;
-}
-
-body, html {
-	padding: 0;
-	margin: 0;
-	height: 100%;
-}
-
 body {
-	font-family: sans-serif;
-	color: #333;
-	position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, sans-seif;
+    margin: 25px;
+    min-height: 550px;
+    min-width: 375px;
 }
 
-#droplet {
-    width: 50px;
-    display: inline-block;
-    margin-right: 12px;
-    float: left;
+.fullsize {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-.message {
-	position: absolute;
-	width: 256px;
-    height: 64px;
-	text-align: center;
-	top: 50%;
-	left: 50%;
-	margin-left: -128px;
-    margin-top: -32px;
-    line-height: 0;
+.background {
+    position: fixed;
 }
 
-.message h1 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    line-height: 64px;
-    float: left;
-    font-family: 'Quicksand';
+.background > div {
+    background: url('/images/sierra.jpg') center center no-repeat;
+    background-size: cover;
+    min-height: 100%;
+}
+
+.card {
+    width: 375px;
+    height: 550px;
+    position: absolute;
+    left: 50%;
+    top: 25px;
+    margin-left: -187.5px;
+    width: 375px;
+    height: 550px;
+    border-radius: 12px;
+    color: #000;
+    background: #d9d6cc;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-height: 600px) {
+    .card {
+        top: 50%;
+        margin-top: -275px;
+    }
+}
+
+.card .barcode {
+    width: 266px;
+    height: 86px;
+    background: #fff;
+    bottom: 25px;
+    position: absolute;
+    left: 50%;
+    margin-left: -133px;
+    border-radius: 6px;
+}
+
+.card .barcode div {
+    background: url('/images/barcode.png') no-repeat center center;
+}
+
+.card .logo {
+    left: 13px;
+    top: 13px;
+    position: absolute;
+    background: url('/images/logo.png') no-repeat center center;
+    background-size: 35px 35px;
+    text-indent: -9999rem;
+    width: 35px;
+    height: 35px;
+}
+
+.card .logoText {
+    font-size: 32px;
+    font-weight: 600;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    top: 14px;
+}
+
+.card .strip {
+    top: 65px;
+    position: absolute;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1) url('/images/icon.png') center center no-repeat;
+    background-size: 96px 96px;
+    width: 425px;
+    margin-left: -25px;
+    height: 144px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+    .card .strip {
+        background-image: url('/images/icon@2x.png');
+    }
+}
+
+.card .field {
+    position: absolute;
+    top: 220px;
+}
+
+.card .field.left {
+    left: 15px;
+}
+
+.card .field.right {
+    right: 15px;
+    text-align: right;
+}
+
+.card .field .title {
+    text-transform: uppercase;
+    font-size: 11px;
     font-weight: 500;
-    font-size: 36px;
 }
 
-.message img {
-    height: 100%;
-    display: inline-block;
-    float: left;
+.card .field .value {
+    font-size: 26px;
+    padding-top: 4px;
+}
+
+
+.alias {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
 }
