@@ -2,9 +2,21 @@
   "autoPin": true,
   "pins": [
     {
+      "package": "AWS",
+      "reason": null,
+      "repositoryURL": "https://github.com/nodes-vapor/aws.git",
+      "version": "0.1.0"
+    },
+    {
       "package": "CLibreSSL",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/clibressl.git",
+      "version": "1.0.0"
+    },
+    {
+      "package": "CPostgreSQL",
+      "reason": null,
+      "repositoryURL": "https://github.com/vapor/cpostgresql.git",
       "version": "1.0.0"
     },
     {
@@ -26,6 +38,12 @@
       "version": "1.1.0"
     },
     {
+      "package": "DataURI",
+      "reason": null,
+      "repositoryURL": "https://github.com/nodes-vapor/data-uri.git",
+      "version": "0.1.1"
+    },
+    {
       "package": "Engine",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/engine.git",
@@ -36,6 +54,12 @@
       "reason": null,
       "repositoryURL": "https://github.com/vapor/fluent.git",
       "version": "1.4.3"
+    },
+    {
+      "package": "FluentPostgreSQL",
+      "reason": null,
+      "repositoryURL": "https://github.com/vapor-community/postgresql-driver.git",
+      "version": "1.1.0"
     },
     {
       "package": "JSON",
@@ -54,6 +78,12 @@
       "reason": null,
       "repositoryURL": "https://github.com/vapor/leaf.git",
       "version": "1.0.7"
+    },
+    {
+      "package": "MimeLib",
+      "reason": null,
+      "repositoryURL": "https://github.com/manGoweb/MimeLib.git",
+      "version": "1.0.0"
     },
     {
       "package": "Multipart",
@@ -80,6 +110,12 @@
       "version": "1.0.1"
     },
     {
+      "package": "PostgreSQL",
+      "reason": null,
+      "repositoryURL": "https://github.com/vapor/postgresql.git",
+      "version": "1.1.0"
+    },
+    {
       "package": "Routing",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/routing.git",
@@ -90,6 +126,12 @@
       "reason": null,
       "repositoryURL": "https://github.com/vapor/socks.git",
       "version": "1.2.7"
+    },
+    {
+      "package": "Storage",
+      "reason": null,
+      "repositoryURL": "https://github.com/nodes-vapor/storage.git",
+      "version": "0.3.7"
     },
     {
       "package": "TLS",
