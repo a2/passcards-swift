@@ -11,7 +11,6 @@ func vaporAPNS(for droplet: Droplet) throws -> VaporAPNS {
         throw TokenError.invalidAuthKey
     }
 
-    var options = try Options(topic: topic, teamId: teamID, keyId: keyID, rawPrivKey: privateKey, rawPubKey: publicKey)
-    options.forceCurlInstall = droplet.environment == .production
+    let options = try Options(topic: topic, teamId: teamID, keyId: keyID, rawPrivKey: privateKey, rawPubKey: publicKey)
     return try VaporAPNS(options: options)
 }
