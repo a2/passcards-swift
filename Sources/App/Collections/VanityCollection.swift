@@ -4,6 +4,7 @@ import HTTP
 import Routing
 import Storage
 import Vapor
+import VaporAPNS
 
 private extension Field {
     var data: Bytes {
@@ -22,9 +23,11 @@ private extension Field {
 final class VanityCollection: RouteCollection {
     typealias Wrapped = HTTP.Responder
 
+    let apns: VaporAPNS
     let updatePassword: String?
     
-    init(updatePassword: String?) {
+    init(apns: VaporAPNS, updatePassword: String?) {
+        self.apns = apns
         self.updatePassword = updatePassword
     }
 
@@ -130,6 +133,14 @@ final class VanityCollection: RouteCollection {
             pass.passPath = passPath
             pass.updatedAt = Date()
             try pass.save()
+
+            let registrations = try Registration.query()
+                .filter("pass_id", pass.id!)
+                .run()
+            let deviceTokens = registrations.flatMap { $0.deviceToken }
+
+            let message = ApplePushMessage(priority: .energyEfficient, payload: Payload(), sandbox: false)
+            self.apns.send(message, to: deviceTokens, perDeviceResultHandler: { _ in })
 
             return Response(status: .seeOther, headers: [.location: String(describing: request.uri)])
         }

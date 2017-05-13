@@ -8,6 +8,12 @@
       "version": "0.1.0"
     },
     {
+      "package": "CCurl",
+      "reason": null,
+      "repositoryURL": "https://github.com/boostcode/CCurl.git",
+      "version": "0.2.4"
+    },
+    {
       "package": "CLibreSSL",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/clibressl.git",
@@ -66,6 +72,12 @@
       "reason": null,
       "repositoryURL": "https://github.com/vapor/json.git",
       "version": "1.0.6"
+    },
+    {
+      "package": "JWT",
+      "reason": null,
+      "repositoryURL": "https://github.com/vapor/jwt.git",
+      "version": "1.0.1"
     },
     {
       "package": "Jay",
@@ -134,6 +146,12 @@
       "version": "0.3.7"
     },
     {
+      "package": "SwiftString",
+      "reason": null,
+      "repositoryURL": "https://github.com/matthijs2704/SwiftString.git",
+      "version": "1.0.5"
+    },
+    {
       "package": "TLS",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/tls.git",
@@ -150,6 +168,12 @@
       "reason": null,
       "repositoryURL": "https://github.com/vapor/vapor.git",
       "version": "1.5.15"
+    },
+    {
+      "package": "VaporAPNS",
+      "reason": null,
+      "repositoryURL": "https://github.com/matthijs2704/vapor-apns.git",
+      "version": "1.2.2"
     }
   ],
   "version": 1

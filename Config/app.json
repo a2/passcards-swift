@@ -1,3 +1,9 @@
 {
+    "apns": {
+        "topic": "$APNS_TOPIC",
+        "keyID": "$APNS_KEY_ID",
+        "teamID": "$APNS_TEAM_ID",
+        "privateKey": "$APNS_PRIVATE_KEY"
+    },
     "updatePassword": "$UPDATE_PASSWORD"
 }
