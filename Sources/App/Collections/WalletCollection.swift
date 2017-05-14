@@ -58,9 +58,8 @@ final class WalletCollection: RouteCollection, EmptyInitializable {
     }
 
     func registeredSerialNumbers(deviceLibraryIdentifier: String, passTypeIdentifier: String, passesUpdatedSince: Date?) throws -> (serialNumbers: [String], lastUpdated: Date) {
-
         let query = try Pass.query()
-            .union(Registration.self)
+            .union(Registration.self, localKey: "id", foreignKey: "pass_id")
             .filter(Registration.self, "device_library_identifier", deviceLibraryIdentifier)
             .filter("pass_type_identifier", passTypeIdentifier)
 
