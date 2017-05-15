@@ -20,11 +20,11 @@
 
         <div class="left field">
             <div class="title">GitHub</div>
-            <div class="value">a2/Passcards</div>
+            <div class="value">a2/passcards-swift</div>
         </div>
 
         <div class="barcode">
-            <a href="https://github.com/a2/passcards" target="_blank">
+            <a href="https://github.com/a2/passcards-swift" target="_blank">
                 <div class="alias fullsize"></div>
             </a>
         </div>
