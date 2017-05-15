@@ -1,15 +1,37 @@
-# Basic Template
+# Passcards
 
-A basic vapor template for starting a new Vapor web application. If you're using vapor toolbox, you can use: `vapor new --template=basic`
+A simple Wallet (née Passbook) server. This is a Swift re-implementation of the original [Parse-backed version](https://github.com/a2/passcards-parse).
 
-## 📖 Documentation
+## Usage
 
-Visit the Vapor web framework's [documentation](http://docs.vapor.codes) for instructions on how to use this package.
+```sh
+$ swift build -c release
+$ .build/release/App
+```
 
-## 💧 Community
+**Environment:**
 
-Join the welcoming community of fellow Vapor developers in [slack](http://vapor.team).
+| Key | Description |
+| --- | ----------- |
+| APNS_KEY_ID | APNS key ID |
+| APNS_PRIVATE_KEY | APNS private key content |
+| APNS_TEAM_ID | APNS team ID |
+| APNS_TOPIC | APNS (certificate) topic |
+| PG_DBNAME | Postgres database name |
+| PG_HOST | Postgres host |
+| PG_PASSWORD | Postgres password |
+| PG_PORT | Postgres port |
+| PG_USER | Postgres user |
+| S3_ACCESS_KEY | S3 access key |
+| S3_BUCKET | S3 bucket name |
+| S3_REGION | S3 bucket region |
+| S3_SECRET_KEY | S3 access secret key |
+| UPDATE_PASSWORD | Update password *(unset == unlimited access)* |
 
-## 🔧 Compatibility
+## Author
 
-This package has been tested on macOS and Ubuntu.
+Alexsander Akers, me@a2.io
+
+## License
+
+Passcards is available under the MIT license. See the LICENSE file for more info.
