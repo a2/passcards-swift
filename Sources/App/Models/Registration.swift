@@ -18,7 +18,7 @@ class Registration: Entity {
     static func prepare(_ database: Database) throws {
         try database.create(entity) { builder in
             builder.id()
-            builder.string("pass_id")
+            builder.parent(Pass.self)
             builder.string("device_library_identifier")
             builder.string("device_token")
         }
