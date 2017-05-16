@@ -9,7 +9,7 @@ drop.preparations = [Pass.self, Registration.self]
 try drop.addProvider(StorageProvider.self)
 
 drop.collection(WalletCollection(droplet: drop))
-drop.collection(VanityCollection(droplet: drop))
+drop.collection(try VanityCollection(droplet: drop))
 
 drop.get { req in
     return try drop.view.make("welcome")

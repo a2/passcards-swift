@@ -27,10 +27,10 @@ final class VanityCollection: RouteCollection {
     let apns: VaporAPNS
     let updatePassword: String?
 
-    init(droplet: Droplet) {
+    init(droplet: Droplet) throws {
         self.droplet = droplet
-        self.apns = try! droplet.vaporAPNS()
-        self.updatePassword = try! drop.config.extract("app", "updatePassword") as String?
+        self.apns = try droplet.vaporAPNS()
+        self.updatePassword = try drop.config.extract("app", "updatePassword") as String?
     }
 
     func isAuthenticated(request: Request) -> Bool {
@@ -66,7 +66,7 @@ final class VanityCollection: RouteCollection {
                 let pass = try self.findPass(vanityName: vanityName),
                 let passPath = pass.passPath
             else {
-                return Response(status: .notFound)
+                return try self.droplet.view.make("welcome")
             }
 
             let updatedAt = pass.updatedAt ?? Date()
