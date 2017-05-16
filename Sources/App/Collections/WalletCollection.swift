@@ -89,7 +89,7 @@ final class WalletCollection: RouteCollection {
 
     func log(messages: [String]) {
         for message in messages {
-            droplet.log.info(message)
+            droplet.log.error(message)
         }
     }
 
