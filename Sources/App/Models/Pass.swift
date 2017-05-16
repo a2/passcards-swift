@@ -57,7 +57,7 @@ class Pass: Entity {
             "serial_number": serialNumber,
             "pass_path": passPath,
             "vanity_name": vanityName,
-            "updated_at": updatedAt?.timeIntervalSince1970,
+            "updated_at": (updatedAt?.timeIntervalSince1970).map(floor),
         ])
     }
 }
