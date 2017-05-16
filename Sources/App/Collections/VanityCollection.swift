@@ -23,12 +23,14 @@ private extension Field {
 final class VanityCollection: RouteCollection {
     typealias Wrapped = HTTP.Responder
 
+    let droplet: Droplet
     let apns: VaporAPNS
     let updatePassword: String?
-    
-    init(apns: VaporAPNS, updatePassword: String?) {
-        self.apns = apns
-        self.updatePassword = updatePassword
+
+    init(droplet: Droplet) {
+        self.droplet = droplet
+        self.apns = try! droplet.vaporAPNS()
+        self.updatePassword = try! drop.config.extract("app", "updatePassword") as String?
     }
 
     func isAuthenticated(request: Request) -> Bool {

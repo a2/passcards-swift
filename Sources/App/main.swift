@@ -3,16 +3,13 @@ import Storage
 import Vapor
 
 let drop = Droplet()
-drop.database = database(for: drop)
+drop.database = drop.postgresDatabase()
 drop.preparations = [Pass.self, Registration.self]
 
 try drop.addProvider(StorageProvider.self)
 
-drop.collection(WalletCollection.self)
-
-let apns = try vaporAPNS(for: drop)
-let updatePassword = try drop.config.extract("app", "updatePassword") as String?
-drop.collection(VanityCollection(apns: apns, updatePassword: updatePassword))
+drop.collection(WalletCollection(droplet: drop))
+drop.collection(VanityCollection(droplet: drop))
 
 drop.get { req in
     return try drop.view.make("welcome")

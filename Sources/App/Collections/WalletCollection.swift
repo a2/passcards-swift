@@ -4,10 +4,13 @@ import Routing
 import Storage
 import Vapor
 
-final class WalletCollection: RouteCollection, EmptyInitializable {
+final class WalletCollection: RouteCollection {
     typealias Wrapped = HTTP.Responder
 
-    init() {
+    let droplet: Droplet
+
+    init(droplet: Droplet) {
+        self.droplet = droplet
     }
 
     func findPass(passTypeIdentifier: String, serialNumber: String) throws -> Pass? {
@@ -86,7 +89,7 @@ final class WalletCollection: RouteCollection, EmptyInitializable {
 
     func log(messages: [String]) {
         for message in messages {
-            print(message)
+            droplet.log.info(message)
         }
     }
 
