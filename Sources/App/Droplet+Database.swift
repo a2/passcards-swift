@@ -1,15 +1,32 @@
 import FluentPostgreSQL
+import Foundation
 import Vapor
 
 extension Droplet {
-    func postgresDatabase() -> Database {
-        let postgresConfig = config["database", "postgres"]
+    enum PostgresError: Error {
+        case invalidDatabaseURL
+        case missingComponent(String)
+    }
 
-        let host = postgresConfig?["host"]?.string ?? "localhost"
-        let port = postgresConfig?["port"]?.int ?? 5432
-        let dbname = postgresConfig?["dbname"]?.string ?? "passcards"
-        let user = postgresConfig?["user"]?.string ?? ""
-        let password = postgresConfig?["password"]?.string ?? ""
+    func postgresDatabase() throws -> Database {
+        guard let databaseURL = try config.extract("database", "postgres") as String?,
+            let components = URLComponents(string: databaseURL)
+        else {
+            throw PostgresError.invalidDatabaseURL
+        }
+
+        let host = components.host ?? "localhost"
+        let port = components.port ?? 5432
+        let user = components.user ?? ""
+        let password = components.password ?? ""
+
+        let dbname: String
+        if components.path.characters.count > 1 {
+            let startPlusOne = components.path.index(after: components.path.startIndex)
+            dbname = components.path.substring(from: startPlusOne)
+        } else {
+            dbname = "passcards"
+        }
 
         let postgres = PostgreSQLDriver(host: host, port: port, dbname: dbname, user: user, password: password)
         return Database(postgres)
